@@ -45,16 +45,17 @@ export const useProductStore = defineStore({
       else this.carts = [...this.carts, { ...product, quantity: 1 }];
     },
 
-    addingCart(cart: ICart) {
+    increaseProductQuantity(cart: ICart) {
       const newItem = this.carts.find((item) => item.id === cart.id);
 
       //if the newItem id match just increase the quantity
       if (newItem) newItem.quantity++;
-      // else just push this cart and add a quantity of 1
-      else this.carts = [...this.carts, { ...cart, quantity: 1 }];
+
+      // else return nothing
+      return;
     },
 
-    removeCart(cart: ICart) {
+    decreaseProductQuantity(cart: ICart) {
       const newItem = this.carts.find((item) => item.id === cart.id);
 
       if (newItem?.quantity > 1) cart.quantity--;

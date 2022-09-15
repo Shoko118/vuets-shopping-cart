@@ -25,8 +25,8 @@ const { carts } = storeToRefs(store);
         </div>
 
         <div>
-          <button @click.prevent="store.removeCart(cart)">-</button>
-          <button @click.prevent="store.addingCart(cart)">+</button>
+          <button @click.prevent="store.decreaseProductQuantity(cart)">-</button>
+          <button @click.prevent="store.increaseProductQuantity(cart)">+</button>
         </div>
       </div>
       <h1>Total: ${{ store.totalPrice }}</h1>
